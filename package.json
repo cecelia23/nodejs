@@ -2,6 +2,10 @@
   "name": "webpack_demo",
   "version": "1.0.0",
   "description": "",
+  "main": "src/app.js",
+  "bin": {
+    "anydoor": "bin/anydoor"
+  },
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,6 +16,10 @@
     "lint": "eslint .",
     "fix": "eslint --fix ."
   },
+  "pre-commit": [
+    "fix",
+    "lint"
+  ],
   "author": "Cecelia23",
   "license": "ISC",
   "devDependencies": {
