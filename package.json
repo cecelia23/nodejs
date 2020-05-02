@@ -40,6 +40,8 @@
     "xml-loader": "^1.2.1"
   },
   "dependencies": {
+    "art-template": "^4.13.2",
+    "bootstrap": "^4.4.1",
     "chalk": "^2.4.2",
     "lodash": "^4.17.11"
   }
