@@ -8,11 +8,35 @@
 
 ## 服务器渲染
 
-- 在服务端使用模板引擎（如art-template）
+- 在服务端使用模板引擎（如art-template, ejs, jade(pug), handlebars, nunjucks）
 - 浏览器端渲染（异步渲染），不利于SEO（搜索引擎优化）
 - 服务器端渲染可以被爬虫抓取到，而客户端渲染很难被爬虫抓取
 - 一般网站既不是纯服务器端渲染，又不是纯异步（客户端）渲染，而是两者结合起来
 - 例如，京东商品列表是服务器端渲染，便于SEO; 商品评论列表是异步渲染（比较快），有利于用户体验
+
+### 异步编程
+在定义的函数中，为了获取异步调用的结果（readFile, ajax请求等），需要通过传入callback回调函数。
+```javascript
+function add(filePath, callback) {
+    fs.readFile(filePath, (err, data) => {
+        // 拿到数据
+        if (!err) {
+            callback(null, data)
+        }
+    })
+}
+```
+
+## 表单提交
+
+- 同步提交
++ 无论服务器响应的是什么内容，都会直接显示在页面上，覆盖原始页面内容。（如：直接展示json对象）
+
+- 异步提交
++ 服务端返回响应信息，浏览器拿到后可根据需要进行处理，展示效果更为丰富合理。（如：根据双方事先定义的Status确定提示信息）
+
+服务端重定向只对同步提交生效，对异步提交无效（只能通过浏览器端重定向）
+
 
 ## 模块
 
@@ -74,6 +98,13 @@ module.exports.foo = "bar"
 - 路径形式的自定义模块
 - 第三方模块(找node_modules中相应的文件夹，如果同一级的没找到，就一级一级地向外查找，直到磁盘根目录)
 
+## package.json和package-lock.json
+
+- npm 5以后的版本不需要加--save，也会将其自动保存到dependencies中
+- 下载包时，会自动更新或添加`package-lock.json`
++ 该文件中保存了node_modules文件夹中所有依赖的信息（版本、下载地址）。当以后再执行`npm i`时，速度会更快。
++ 该文件锁定了包的版本，防止再次下载时自动升级包的版本
+
 
 ## 淘宝镜像
 
@@ -90,3 +121,20 @@ npm config set register [url]
 npm config list
 
 
+## 文件路径模块 path
+
+- path.basename
+- path.dirname
+- path.extname
+- path.parse
+- path.join
+
+## node中的其他成员
+
+除了require, exports等模块相关的API，还有两个特殊的成员。
+- __dirname **动态获取**当前文件模块所属`目录的绝对路径`
+- __filename **动态获取**`当前文件的绝对路径`
+
+- 在node中`文件`的相对路径，被设计为：相对于执行node命令所在的路径；（这里要区别于模块的相对路径`require('./a')`：相对于当前文件）
+- 所以要使用 `动态的绝对路径` __dirname, __filename, 将相对路径转变为动态地绝对路径
+- 在拼接路径时，为了避免一些低级错误，使用path.join()进行拼接

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="styleSheet" href="/public/lib/bootstrap.css" />
+  <title>修改学生信息</title>
+</head>
+
+<body>
+  <div class="header container">
+    <div class="pag-header">
+      <h1><a href="/">返回</a>&nbsp;<small>修改学生信息</small></h1>
+    </div>
+  </div>
+  <div class="commons container">
+    
+    <form action='/edit' method="POST">
+      <input type="hidden" name="id" value={{stu.id}} />
+      
+      <div class="form-class">
+        <label for="">姓名</label>
+        <input type="text" class="form-control" value="{{stu.name}}" name="name" required maxlength="10" minlength="2" />
+      </div>
+
+      <div class="form-class">
+        性别：
+        <label>
+          <input type="radio" name="gender" value=0 checked={{stu.gender}}>男
+        </label>
+        <label>
+          <input type="radio" name="gender" value=1 checked={{stu.gender}}>女
+        </label>
+      </div>
+      <div class="form-class">
+        <label for="">年龄</label>
+        <input type="text" class="form-control" id="age" name="age" value={{stu.age}} />
+      </div>
+      <div class="form-class">
+        <label for="">爱好</label>
+        <input type="text" class="form-control" id="hobbies" name="hobbies" value={{stu.hobbies}} />
+      </div>
+      <!-- <div class="form-class">
+                <label for="textarea-message">你的留言</label>
+               <textarea class="form-control"  id="textarea-message" name="message"
+               required minlength="5" maxlength="20" ></textarea>
+            </div> -->
+      <button type="submit" class="btn btn-success">提交</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <!-- <link rel="stylesheet" href="../public/css/content_toolbar.css"> -->
+  <link rel="stylesheet" href="../public/lib/bootstrap.css">
+  <style>
+    .cff {
+      color: #ffffff !important;
+    }
+
+    .second_nav_con .nav_btn .findjob_btn {
+      width: 105px;
+      height: 28px;
+      line-height: 28px;
+      background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUU2QUE1QUFFMzQzMTFFNEE2MTU4QUU4NjI4NjQ4RDciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUU2QUE1QUJFMzQzMTFFNEE2MTU4QUU4NjI4NjQ4RDciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBRTZBQTVBOEUzNDMxMUU0QTYxNThBRTg2Mjg2NDhENyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBRTZBQTVBOUUzNDMxMUU0QTYxNThBRTg2Mjg2NDhENyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Po/pFJ8AAADbSURBVHjajNFNDsFQEMDxVzYq7tA1ysbGHgtOUBJxgK6dwo4juIk4gUQkQsTHpj4W9pL6V+ZFU211kl/z8t5M33SqfN9XER0s8RQLtKN50aIhTughh7ysz+gnFZq4oxrTRR03FPReTn2jiQ3W6jdW2KOhN8KFhvof35xQO6WUVmtyZiYNZ4QDWjKcQBcXDNKmGtw6wwMvEayncqbihuNgCxNDVFCWdVHOnOg3utglfJ9WlRxXt2rjCiulSLMk1zZ4zOU/TVS2GKMevMXLeFv4Vk8P56iyxyf3LcAAYk6iUandveUAAAAASUVORK5CYII=") 14px center no-repeat #62b038;
+      color: #fff;
+      font-size: 14px;
+      text-indent: 34px;
+      text-align: left;
+      margin-right: 20px;
+    }
+
+    .second_nav_con .nav_btn .findjob_btn:hover {
+      background-color: #339933;
+    }
+
+    .second_nav_con .nav_btn .employ_btn {
+      width: 105px;
+      height: 28px;
+      line-height: 28px;
+      background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Qzk3QzcyOTlFMzQzMTFFNDgxRjJFNzYzRTg4MkI5RTEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Qzk3QzcyOUFFMzQzMTFFNDgxRjJFNzYzRTg4MkI5RTEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpDOTdDNzI5N0UzNDMxMUU0ODFGMkU3NjNFODgyQjlFMSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpDOTdDNzI5OEUzNDMxMUU0ODFGMkU3NjNFODgyQjlFMSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuG9jbYAAAA8SURBVHjaYvwPBAxEAhYozUiE2v9MyBwCNAOyYkYCNMOoyYRMxogM9BhENuE/mhhWk4lOGwSdAAIAAQYAt/0aHE477l0AAAAASUVORK5CYII=") 14px center no-repeat #62b038;
+      color: #fff;
+      font-size: 14px;
+      text-indent: 34px;
+      text-align: left;
+    }
+
+    .second_nav_con .nav_btn .employ_btn:hover {
+      background-color: #339933;
+    }
+
+  </style>
+
+  <title>{{title}}</title>
+</head>
+
+<body>
+  <div class="second_nav_con">
+    <dl class="second_nav">
+      <dd class="active"><a href="/index">我的工作</a></dd>
+      <dd><a href="/Profile/Myprofile">我的简历</a></dd>
+      <dd><a href="/Search/Index">职位广场</a></dd>
+      <dd><a href="/enterpriselibrary/list">企业广场</a></dd>
+    </dl>
+    <dl class="nav_btn">
+      <a href="https://passport.csdn.net/account/login?from=http://job.csdn.net/" class="findjob_btn">我要求职</a>
+      <a href="http://biz.csdn.net" class="employ_btn">我要招聘</a>
+    </dl>
+  </div>
+  <div class="main clearfix">
+    <div id="index_pic" class="index_pic">
+      <div>
+        <a href="https://xls.bazhua.me" target="_blank">
+          <img id="countDownBanner" src="//hstatic.hirede.com/lbd/images/countdown-8aza/countdown-csdn-6.png"
+            width="1170" height="272">
+        </a>
+      </div>
+    </div>
+
+    <div id="query_condtion" class="clearfix">
+      <!-- 选项少点的查询选择项-->
+      <div class="mod_job_query_mini">
+        <form action="/Search/search" id="search_form" method="get">
+          <input type="hidden" name="f" value="">
+          <input type="hidden" name="t" value="1" />
+          <input type="hidden" name="sv" id="sv" value="不限" />
+          <li name="query_type" class="dropdown query_type">
+            <a id="type_a" class="dropdown-toggle query_type_title">
+              职位
+            </a>
+          </li>
+          <input type="text" placeholder="可按职位或公司关键词搜索职位" name="k" value="" class="query_input">
+          <li class="dropdown select_query_type" id="zhinengdiqu">
+            <input type="hidden" id="w_p_c" name="w_p_c" value="" />
+            <input type="hidden" id="w_p_v" name="w_p_v" value="" />
+            <input type="hidden" id="work_place_code" value="0" />
+            <a href="javascript:void(0);" id="Area" name="Area" data-toggle="dropdown" class="dropdown-toggle">
+              地区范围 <i class="fa fa-angle-down i_down"></i>
+            </a>
+            <input id="work_place_value" type="hidden" value="" autocomplete="off" />
+          </li>
+          <li class="dropdown select_query_type">
+            <a href="javascript:;" data-toggle="dropdown" id="salary_a" class="dropdown-toggle">
+              薪资范围<i class="fa fa-angle-down i_down"></i>
+            </a>
+            <ul class="dropdown-menu" id="salary">
+              <li><a href="javascript:;" data-value="0-2">2K以下</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;" data-value="2-5">2-5K</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;" data-value="5-10">5-10K</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;" data-value="10-15">10-15K</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;" data-value="15-20">15-20K</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;" data-value="20-25">20-25K</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;" data-value="25-30">25-30K</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;" data-value="30-50">30-50K</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;" data-value="50-100000">50K以上</a></li>
+            </ul>
+          </li>
+          <button class="btn btn-danger btn-lg query_btn" id="searchJob">搜索职位</button>
+        </form>
+      </div>
+    </div>
+    <div class="clearfix">
+      <div class="left-side" style="margin-top:10px;">
+        <div class="mod_left_menu_index">
+          <div class="left_menu">
+            <h3>
+              <a href="javascript:;" class="sub-menu" name="128">最新职位</a>
+              <div class="second_menu" style="display: none; width:0px; height:0px"></div>
+            </h3>
+            <h3>
+              <a href="http://job.csdn.net/search/search?k=%e7%a7%bb%e5%8a%a8%e5%bc%80%e5%8f%91&amp;t=1"
+                class="sub-menu">移动开发</a>
+              <div class="second_menu" style="display: none;">
+                <a href="http://job.csdn.net/search/search?k=iOS&amp;t=1">iOS</a>
+                <a href="http://job.csdn.net/search/search?k=Android&amp;t=1">Android</a>
+                <a href="http://job.csdn.net/search/search?k=WP&amp;t=1">WP</a>
+              </div>
+            </h3>
+            <h3>
+              <a href="http://job.csdn.net/search/search?k=%e5%89%8d%e7%ab%af%e5%bc%80%e5%8f%91&amp;t=1"
+                class="sub-menu">前端开发</a>
+              <div class="second_menu" style="display: none;">
+                <a href="http://job.csdn.net/search/search?k=Web%e5%89%8d%e7%ab%af&amp;t=1">Web前端</a>
+                <a href="http://job.csdn.net/search/search?k=HTML5&amp;t=1">HTML5</a>
+                <a href="http://job.csdn.net/search/search?k=JavaScript&amp;t=1">JavaScript</a>
+                <a href="http://job.csdn.net/search/search?k=HTML&amp;t=1">HTML</a>
+                <a href="http://job.csdn.net/search/search?k=Flash&amp;t=1">Flash</a>
+              </div>
+            </h3>
+            <h3>
+              <a href="http://job.csdn.net/search/search?k=%e5%90%8e%e7%ab%af%e5%bc%80%e5%8f%91&amp;t=1"
+                class="sub-menu">后端开发</a>
+              <div class="second_menu" style="display: none;">
+                <a href="http://job.csdn.net/search/search?k=Java&amp;t=1">Java</a>
+                <a href="http://job.csdn.net/search/search?k=PHP&amp;t=1">PHP</a>
+                <a href="http://job.csdn.net/search/search?k=C%2b%2b&amp;t=1">C++</a>
+                <a href="http://job.csdn.net/search/search?k=C%23&amp;t=1">C#</a>
+                <a href="http://job.csdn.net/search/search?k=Ruby&amp;t=1">Ruby</a>
+                <a href="http://job.csdn.net/search/search?k=Python&amp;t=1">Python</a>
+                <a href="http://job.csdn.net/search/search?k=VB&amp;t=1">VB</a>
+                <a href="http://job.csdn.net/search/search?k=Node.js&amp;t=1">Node.js</a>
+                <a href="http://job.csdn.net/search/search?k=Perl&amp;t=1">Perl</a>
+                <a href="http://job.csdn.net/search/search?k=Go&amp;t=1">Go</a>
+                <a href="http://job.csdn.net/search/search?k=Delphi&amp;t=1">Delphi</a>
+              </div>
+            </h3>
+            <h3>
+              <a href="http://job.csdn.net/search/search?k=%e6%95%b0%e6%8d%ae%e5%ba%93&amp;t=1" class="sub-menu">数据库</a>
+              <div class="second_menu" style="display: none;">
+                <a href="http://job.csdn.net/search/search?k=MySQL&amp;t=1">MySQL</a>
+                <a href="http://job.csdn.net/search/search?k=Oracle&amp;t=1">Oracle</a>
+                <a href="http://job.csdn.net/search/search?k=SqlServer&amp;t=1">SqlServer</a>
+                <a href="http://job.csdn.net/search/search?k=MongoDB&amp;t=1">MongoDB</a>
+                <a href="http://job.csdn.net/search/search?k=DB2&amp;t=1">DB2</a>
+                <a href="http://job.csdn.net/search/search?k=ETL&amp;t=1">ETL</a>
+                <a href="http://job.csdn.net/search/search?k=NoSQL&amp;t=1">NoSQL</a>
+              </div>
+            </h3>
+            <h3>
+              <a href="http://job.csdn.net/search/search?k=%e4%ba%91%e8%ae%a1%e7%ae%97%2f%e5%a4%a7%e6%95%b0%e6%8d%ae&amp;t=1"
+                class="sub-menu">云计算/大数据</a>
+              <div class="second_menu" style="display: none;">
+                <a href="http://job.csdn.net/search/search?k=Hadoop&amp;t=1">Hadoop</a>
+                <a href="http://job.csdn.net/search/search?k=Yarn&amp;t=1">Yarn</a>
+                <a href="http://job.csdn.net/search/search?k=Spark&amp;t=1">Spark</a>
+                <a href="http://job.csdn.net/search/search?k=%e4%ba%91%e5%ad%98%e5%82%a8&amp;t=1">云存储</a>
+                <a href="http://job.csdn.net/search/search?k=%e8%99%9a%e6%8b%9f%e5%8c%96&amp;t=1">虚拟化</a>
+                <a href="http://job.csdn.net/search/search?k=IaaS&amp;t=1">IaaS</a>
+                <a href="http://job.csdn.net/search/search?k=PaaS&amp;t=1">PaaS</a>
+                <a href="http://job.csdn.net/search/search?k=SaaS&amp;t=1">SaaS</a>
+                <a href="http://job.csdn.net/search/search?k=Hive&amp;t=1">Hive</a>
+              </div>
+            </h3>
+            <h3>
+              <a href="http://job.csdn.net/search/search?k=%e8%bf%90%e7%bb%b4&amp;t=1" class="sub-menu">运维</a>
+              <div class="second_menu" style="display: none;">
+                <a
+                  href="http://job.csdn.net/search/search?k=%e8%bf%90%e7%bb%b4%e5%b7%a5%e7%a8%8b%e5%b8%88&amp;t=1">运维工程师</a>
+                <a
+                  href="http://job.csdn.net/search/search?k=%e7%bd%91%e7%bb%9c%e5%b7%a5%e7%a8%8b%e5%b8%88&amp;t=1">网络工程师</a>
+                <a
+                  href="http://job.csdn.net/search/search?k=%e7%b3%bb%e7%bb%9f%e5%b7%a5%e7%a8%8b%e5%b8%88&amp;t=1">系统工程师</a>
+                <a
+                  href="http://job.csdn.net/search/search?k=%e5%ae%89%e5%85%a8%e5%b7%a5%e7%a8%8b%e5%b8%88&amp;t=1">安全工程师</a>
+                <a href="http://job.csdn.net/search/search?k=Web%e5%ae%89%e5%85%a8&amp;t=1">Web安全</a>
+                <a href="http://job.csdn.net/search/search?k=%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8&amp;t=1">网络安全</a>
+                <a href="http://job.csdn.net/search/search?k=%e7%b3%bb%e7%bb%9f%e5%ae%89%e5%85%a8&amp;t=1">系统安全</a>
+                <a href="http://job.csdn.net/search/search?k=IT%e6%94%af%e6%8c%81&amp;t=1">IT支持</a>
+                <a href="http://job.csdn.net/search/search?k=IDC&amp;t=1">IDC</a>
+                <a href="http://job.csdn.net/search/search?k=CDN&amp;t=1">CDN</a>
+              </div>
+            </h3>
+            <h3>
+              <a href="http://job.csdn.net/search/search?k=%e6%b5%8b%e8%af%95&amp;t=1" class="sub-menu">测试</a>
+              <div class="second_menu" style="display: none;">
+                <a
+                  href="http://job.csdn.net/search/search?k=%e6%b5%8b%e8%af%95%e5%b7%a5%e7%a8%8b%e5%b8%88&amp;t=1">测试工程师</a>
+                <a
+                  href="http://job.csdn.net/search/search?k=%e8%87%aa%e5%8a%a8%e5%8c%96%e6%b5%8b%e8%af%95&amp;t=1">自动化测试</a>
+                <a href="http://job.csdn.net/search/search?k=%e5%8a%9f%e8%83%bd%e6%b5%8b%e8%af%95&amp;t=1">功能测试</a>
+                <a href="http://job.csdn.net/search/search?k=%e6%80%a7%e8%83%bd%e6%b5%8b%e8%af%95&amp;t=1">性能测试</a>
+                <a href="http://job.csdn.net/search/search?k=%e6%b8%b8%e6%88%8f%e6%b5%8b%e8%af%95&amp;t=1">游戏测试</a>
+                <a
+                  href="http://job.csdn.net/search/search?k=%e7%a7%bb%e5%8a%a8%e5%ba%94%e7%94%a8App%e6%b5%8b%e8%af%95&amp;t=1">移动应用App测试</a>
+                <a href="http://job.csdn.net/search/search?k=Web%e6%b5%8b%e8%af%95&amp;t=1">Web测试</a>
+                <a href="http://job.csdn.net/search/search?k=%e6%89%8b%e6%9c%ba%e6%b5%8b%e8%af%95&amp;t=1">手机测试</a>
+                <a href="http://job.csdn.net/search/search?k=IC%e6%b5%8b%e8%af%95&amp;t=1">IC测试</a>
+                <a href="http://job.csdn.net/search/search?k=%e7%a1%ac%e4%bb%b6%e6%b5%8b%e8%af%95&amp;t=1">硬件测试</a>
+                <a href="http://job.csdn.net/search/search?k=%e7%b3%bb%e7%bb%9f%e6%b5%8b%e8%af%95&amp;t=1">系统测试</a>
+                <a href="http://job.csdn.net/search/search?k=%e7%99%bd%e7%9b%92%e6%b5%8b%e8%af%95&amp;t=1">白盒测试</a>
+                <a href="http://job.csdn.net/search/search?k=%e9%bb%91%e7%9b%92%e6%b5%8b%e8%af%95&amp;t=1">黑盒测试</a>
+                <a href="http://job.csdn.net/search/search?k=%e7%81%b0%e7%9b%92%e6%b5%8b%e8%af%95&amp;t=1">灰盒测试</a>
+              </div>
+            </h3>
+            <h3>
+              <a href="http://job.csdn.net/search/search?k=%e4%bc%81%e4%b8%9a%e8%bd%af%e4%bb%b6&amp;t=1"
+                class="sub-menu">企业软件</a>
+              <div class="second_menu" style="display: none;">
+                <a
+                  href="http://job.csdn.net/search/search?k=%e8%bd%af%e4%bb%b6%e4%ba%a7%e5%93%81%e5%bc%80%e5%8f%91&amp;t=1">软件产品开发</a>
+                <a
+                  href="http://job.csdn.net/search/search?k=%e8%bd%af%e4%bb%b6%e4%ba%a7%e5%93%81%e5%ae%9e%e6%96%bd&amp;t=1">软件产品实施</a>
+                <a
+                  href="http://job.csdn.net/search/search?k=%e5%94%ae%e5%89%8d%e5%b7%a5%e7%a8%8b%e5%b8%88&amp;t=1">售前工程师</a>
+                <a
+                  href="http://job.csdn.net/search/search?k=%e5%94%ae%e5%90%8e%e6%94%af%e6%8c%81%e5%b7%a5%e7%a8%8b%e5%b8%88&amp;t=1">售后支持工程师</a>
+                <a
+                  href="http://job.csdn.net/search/search?k=%e7%b3%bb%e7%bb%9f%e9%9b%86%e6%88%90%e5%b7%a5%e7%a8%8b%e5%b8%88&amp;t=1">系统集成工程师</a>
+                <a href="http://job.csdn.net/search/search?k=%e9%85%8d%e7%bd%ae%e7%ae%a1%e7%90%86&amp;t=1">配置管理</a>
+              </div>
+            </h3>
+            <h3>
+              <a href="http://job.csdn.net/search/search?k=%e7%94%b5%e5%ad%90&amp;t=1" class="sub-menu">电子</a>
+              <div class="second_menu" style="display: none;">
+                <a href="http://job.csdn.net/search/search?k=IC%e8%ae%be%e8%ae%a1&amp;t=1">IC设计</a>
+                <a href="http://job.csdn.net/search/search?k=PCB%e5%b8%83%e7%ba%bf&amp;t=1">PCB布线</a>
+                <a href="http://job.csdn.net/search/search?k=MCU%e5%bc%80%e5%8f%91&amp;t=1">MCU开发</a>
+                <a href="http://job.csdn.net/search/search?k=DSP%e5%bc%80%e5%8f%91&amp;t=1">DSP开发</a>
+                <a href="http://job.csdn.net/search/search?k=FPGA%e5%bc%80%e5%8f%91&amp;t=1">FPGA开发</a>
+                <a href="http://job.csdn.net/search/search?k=%e7%94%b5%e6%b0%94%e7%ba%bf%e8%b7%af&amp;t=1">电气线路</a>
+                <a href="http://job.csdn.net/search/search?k=%e7%94%b5%e6%ba%90%e8%ae%be%e8%ae%a1&amp;t=1">电源设计</a>
+                <a href="http://job.csdn.net/search/search?k=%e6%97%a0%e7%ba%bf%e5%b0%84%e9%a2%91&amp;t=1">无线射频</a>
+                <a href="http://job.csdn.net/search/search?k=%e9%80%9a%e4%bf%a1%e5%8d%8f%e8%ae%ae&amp;t=1">通信协议</a>
+                <a href="http://job.csdn.net/search/search?k=%e9%a9%b1%e5%8a%a8%e5%bc%80%e5%8f%91&amp;t=1">驱动开发</a>
+                <a
+                  href="http://job.csdn.net/search/search?k=%e7%b3%bb%e7%bb%9f%e8%ae%be%e8%ae%a1%e5%8f%8a%e9%9b%86%e6%88%90&amp;t=1">系统设计及集成</a>
+                <a
+                  href="http://job.csdn.net/search/search?k=%e5%b5%8c%e5%85%a5%e5%bc%8f%e5%bc%80%e5%8f%91&amp;t=1">嵌入式开发</a>
+                <a href="http://job.csdn.net/search/search?k=%e5%b7%a5%e8%89%ba%e5%b7%a5%e7%a8%8b&amp;t=1">工艺工程</a>
+                <a href="http://job.csdn.net/search/search?k=FAE%2fAE&amp;t=1">FAE/AE</a>
+              </div>
+            </h3>
+            <h3>
+              <a href="http://job.csdn.net/search/search?k=%e7%ae%a1%e7%90%86&amp;t=1" class="sub-menu">管理</a>
+              <div class="second_menu" style="display: none;">
+                <a href="http://job.csdn.net/search/search?k=%e9%a1%b9%e7%9b%ae%e7%bb%8f%e7%90%86&amp;t=1">项目经理</a>
+                <a href="http://job.csdn.net/search/search?k=%e6%b5%8b%e8%af%95%e7%bb%8f%e7%90%86&amp;t=1">测试经理</a>
+                <a href="http://job.csdn.net/search/search?k=%e8%bf%90%e7%bb%b4%e7%bb%8f%e7%90%86&amp;t=1">运维经理</a>
+                <a href="http://job.csdn.net/search/search?k=%e5%ae%89%e5%85%a8%e4%b8%93%e5%ae%b6&amp;t=1">安全专家</a>
+                <a
+                  href="http://job.csdn.net/search/search?k=%e7%b3%bb%e7%bb%9f%e6%9e%b6%e6%9e%84%e5%b8%88&amp;t=1">系统架构师</a>
+              </div>
+            </h3>
+            <h3>
+              <a href="javascript:;" class="sub-menu" name="127">其他</a>
+              <div class="second_menu" style="display: none;">
+                <a href="http://job.csdn.net/search/search?k=%e4%ba%a7%e5%93%81%e7%bb%8f%e7%90%86&amp;t=1">产品经理</a>
+                <a href="http://job.csdn.net/search/search?k=UI%2fUE&amp;t=1">UI/UE</a>
+              </div>
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="right-side">
+        <a class="btn btn-success" href="/post">添加学生</a>
+        <table class="table table-bordered">
+          <thead>
+            <tr class="table-success">
+              <th>id</th>
+              <th>姓名</th>
+              <th>性别</th>
+              <th>年龄</td>
+              <th>爱好</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{each students}}
+            <tr class="table-warning">
+              <td>{{$value.id}}</td>
+              <td>{{$value.name}}</td>
+              <td>{{$value.gender? "男": "女"}}</td>
+              <td>{{$value.age}}</td>
+              <td>{{$value.hobbies}}</td>
+              <td>
+                <a href="/edit?id={{$value.id}}">编辑</a>
+                <a href="/delete?id={{$value.id}}">删除</a>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>
+<script type="text/javascript" src="https://js.job.csdn.net/common/jquery.form3.35.js"></script>
+<script src="/Scripts/Comm/Deliver/autoComplete_job.js"></script>
+<script src="/Scripts/Comm/Deliver/autoCreateCityDiv.js"></script>
+<link rel="stylesheet" type="text/css" href="/Content/csdnjob/css/job_index.css">
+<link rel="stylesheet" href="https://image.job.csdn.net/my-job/css/common.css">
+
+<style>
+  #popup_mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    left: 0px;
+    top: 0px;
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+    display: none;
+  }
+
+</style>
